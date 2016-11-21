@@ -7,14 +7,14 @@ function getTemp(location) {
   const requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
   return axios.get(requestUrl)
     .then(response => {
-      if (response.data.cod && response.data.message) {
+      if (response.data && response.data.cod && response.data.message) {
         throw new Error(response.data.message);
       } else {
-        return response.data.main.temp;
+        return Promise.resolve(response.data.main.temp);
       }
     })
     .catch(response => {
-      throw new Error(response.data.message);
+      return Promise.reject(response);
     });
 }
 
