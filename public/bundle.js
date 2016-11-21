@@ -26445,7 +26445,12 @@
 
 	  onSearch: function (event) {
 	    event.preventDefault();
-	    console.log('not yet wired up!');
+	    const location = this.refs.search.value;
+	    if (location && location.length > 0) {
+	      const encodedLocation = encodeURIComponent(location);
+	      this.refs.search.value = '';
+	      window.location.hash = `#/?location=${ encodedLocation }`;
+	    }
 	  },
 	  render: function () {
 	    return React.createElement(
@@ -26503,7 +26508,7 @@
 	            React.createElement(
 	              'li',
 	              null,
-	              React.createElement('input', { type: 'search', placeholder: 'Search weather by city' })
+	              React.createElement('input', { type: 'search', ref: 'search', placeholder: 'Search weather by city' })
 	            ),
 	            React.createElement(
 	              'li',
@@ -26534,12 +26539,15 @@
 	  getInitialState: function () {
 	    return {
 	      isLoading: false,
-	      errorMessage: ''
+	      errorMessage: null
 	    };
 	  },
 	  handleSearch: function (location) {
 	    this.setState({
-	      isLoading: true
+	      isLoading: true,
+	      errorMessage: null,
+	      location: null,
+	      temp: null
 	    });
 	    openWeatherMap.getTemp(location).then(temp => {
 	      this.setState({
@@ -26553,6 +26561,20 @@
 	        errorMessage: 'The city not found'
 	      });
 	    });
+	  },
+	  componentDidMount: function () {
+	    const location = this.props.location.query.location;
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
+	  },
+	  componentWillReceiveProps: function (newProps) {
+	    const location = newProps.location.query.location;
+	    if (location && location.length > 0) {
+	      this.handleSearch(location);
+	      window.location.hash = '#/';
+	    }
 	  },
 	  render: function () {
 	    const { location, temp, isLoading, errorMessage } = this.state;
@@ -26570,7 +26592,7 @@
 	    }
 
 	    function renderError() {
-	      if (errorMessage.length > 0) {
+	      if (errorMessage && errorMessage.length > 0) {
 	        return React.createElement(ErrorModal, { message: errorMessage });
 	      }
 	    }
