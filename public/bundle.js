@@ -26554,7 +26554,7 @@
 	      if (isLoading) {
 	        return React.createElement(
 	          'h3',
-	          null,
+	          { className: 'text-center' },
 	          'Fetching weather...'
 	        );
 	      } else if (temp && location) {
@@ -26566,8 +26566,8 @@
 	      'div',
 	      null,
 	      React.createElement(
-	        'h3',
-	        null,
+	        'h1',
+	        { className: 'text-center' },
 	        'Get Weather'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
@@ -26602,7 +26602,7 @@
 	      React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter city name' }),
 	      React.createElement(
 	        'button',
-	        null,
+	        { className: 'button expanded hollow' },
 	        'Get Weather'
 	      )
 	    );
@@ -26618,13 +26618,13 @@
 	const React = __webpack_require__(7);
 
 	const WeatherMessage = ({ location, temp }) => React.createElement(
-	  'h3',
-	  null,
-	  'It\'s it ',
+	  "h3",
+	  { className: "text-center" },
+	  "It's it ",
 	  temp,
-	  ' in ',
+	  "\u2103 in ",
 	  location,
-	  '.'
+	  "."
 	);
 
 	module.exports = WeatherMessage;
