@@ -103,7 +103,7 @@
 	const Examples = __webpack_require__(273);
 
 	__webpack_require__(274);
-	__webpack_require__(279);
+	__webpack_require__(278);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -28202,10 +28202,15 @@
 	});
 
 	module.exports = ErrorModal;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(278)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(271)))
 
 /***/ },
-/* 271 */,
+/* 271 */
+/***/ function(module, exports) {
+
+	module.exports = jQuery;
+
+/***/ },
 /* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28653,18 +28658,12 @@
 
 /***/ },
 /* 278 */
-/***/ function(module, exports) {
-
-	module.exports = jQuery;
-
-/***/ },
-/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(280);
+	var content = __webpack_require__(279);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(277)(content, {});
@@ -28673,8 +28672,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./app.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./app.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -28684,7 +28683,7 @@
 	}
 
 /***/ },
-/* 280 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(276)();
@@ -28692,7 +28691,7 @@
 
 
 	// module
-	exports.push([module.id, ".page-title {\n    margin: 2.5rem 0;\n}\n\ninput[type=search] {\n    box-shadow: none;\n}\n", ""]);
+	exports.push([module.id, ".page-title {\n  margin: 2.5rem 0; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
 
 	// exports
 
