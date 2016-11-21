@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "browsersync": "browser-sync start --proxy \"http://localhost:9000\" --files \"./public/**/*.*\" --no-open",
-    "start": "concurrently --kill-others \"webpack -w\" \"node server.js\" \"npm run browsersync\"",
+    "serve": "concurrently --kill-others \"webpack -w\" \"node server.js\" \"npm run browsersync\"",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
