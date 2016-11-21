@@ -26420,11 +26420,14 @@
 	  null,
 	  React.createElement(Nav, null),
 	  React.createElement(
-	    'h2',
-	    null,
-	    'Main Component'
-	  ),
-	  props.children
+	    'div',
+	    { className: 'row' },
+	    React.createElement(
+	      'div',
+	      { className: 'columns medium-6 large-4 small-centered' },
+	      props.children
+	    )
+	  )
 	);
 
 	module.exports = Main;
@@ -28152,19 +28155,42 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(7);
+	const { Link } = __webpack_require__(184);
 
 	const Examples = () => React.createElement(
 	  'div',
 	  null,
 	  React.createElement(
-	    'h3',
-	    null,
+	    'h1',
+	    { className: 'text-center' },
 	    'Examples'
 	  ),
 	  React.createElement(
 	    'p',
 	    null,
-	    'Welcome to examples page!'
+	    'Here are a few example locations to try out:'
+	  ),
+	  React.createElement(
+	    'ol',
+	    null,
+	    React.createElement(
+	      'li',
+	      null,
+	      React.createElement(
+	        Link,
+	        { to: '/?location=Abakan' },
+	        'Abakan'
+	      )
+	    ),
+	    React.createElement(
+	      'li',
+	      null,
+	      React.createElement(
+	        Link,
+	        { to: '/?location=Krasnoyarsk' },
+	        'Krasnoyarsk'
+	      )
+	    )
 	  )
 	);
 
