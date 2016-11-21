@@ -28052,9 +28052,18 @@
 	const React = __webpack_require__(1);
 
 	const Examples = () => React.createElement(
-	  'h3',
+	  'div',
 	  null,
-	  'Examples component'
+	  React.createElement(
+	    'h3',
+	    null,
+	    'Examples'
+	  ),
+	  React.createElement(
+	    'p',
+	    null,
+	    'Welcome to examples page!'
+	  )
 	);
 
 	module.exports = Examples;
